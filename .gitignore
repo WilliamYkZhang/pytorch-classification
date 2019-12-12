@@ -1,6 +1,7 @@
 # tmp dirs and files
 checkpoint
-checkpoints
+checkpoints/vgg19/*
+!checkpoints/vgg19/log.txt
 data
 cifar-debug.py
 test.eps
