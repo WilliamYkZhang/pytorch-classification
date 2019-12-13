@@ -30,13 +30,13 @@ class Logger(object):
             if resume: 
                 self.file = open(fpath, 'r') 
                 name = self.file.readline()
-                self.names = name.rstrip().split('\t')
+                self.names = name.rstrip().split(',')
                 self.numbers = {}
                 for _, name in enumerate(self.names):
                     self.numbers[name] = []
 
                 for numbers in self.file:
-                    numbers = numbers.rstrip().split('\t')
+                    numbers = numbers.rstrip().split(',')
                     for i in range(0, len(numbers)):
                         self.numbers[self.names[i]].append(numbers[i])
                 self.file.close()
@@ -52,7 +52,7 @@ class Logger(object):
         self.names = names
         for _, name in enumerate(self.names):
             self.file.write(name)
-            self.file.write('\t')
+            self.file.write(',')
             self.numbers[name] = []
         self.file.write('\n')
         self.file.flush()
@@ -62,7 +62,7 @@ class Logger(object):
         assert len(self.names) == len(numbers), 'Numbers do not match names'
         for index, num in enumerate(numbers):
             self.file.write("{0:.6f}".format(num))
-            self.file.write('\t')
+            self.file.write(',')
             self.numbers[self.names[index]].append(num)
         self.file.write('\n')
         self.file.flush()
