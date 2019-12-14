@@ -8,7 +8,8 @@ test.eps
 dev
 monitor.py
 exp
-
+.idea/
+*.tar
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
